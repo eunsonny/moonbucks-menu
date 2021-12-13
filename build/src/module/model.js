@@ -1,3 +1,4 @@
+import api from "../api/index.js";
 var Model = /** @class */ (function () {
     function Model() {
         this.menu = {
@@ -17,7 +18,11 @@ var Model = /** @class */ (function () {
         localStorage.setItem(this.selectedTab, JSON.stringify(this.menu[this.selectedTab]));
     };
     Model.prototype.addMenu = function (menuName) {
-        this.menu[this.selectedTab].push(menuName);
+        // this.menu[this.selectedTab].push(menuName)
+        api.addMenu({
+            category: this.selectedTab,
+            menuName: menuName
+        });
         this.onMenuChanged();
     };
     Model.prototype.editMenu = function (menuId, editedName) {

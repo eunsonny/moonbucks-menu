@@ -24,7 +24,6 @@ class Controller {
 
   handleAddMenu = (event: Event) => {
     event.preventDefault();
-
     const name = this.view.menuName;
 
     if (!name) {

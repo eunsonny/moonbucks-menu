@@ -1,4 +1,5 @@
 import { MenuCategory } from "../utils/type";
+import api from "../api/index.js";
 
 class Model {
   menu;
@@ -28,7 +29,11 @@ class Model {
   }
 
   addMenu(menuName: string) {
-    this.menu[this.selectedTab].push(menuName)
+    // this.menu[this.selectedTab].push(menuName)
+    api.addMenu({ 
+      category: this.selectedTab,
+      menuName: menuName
+    })
 
     this.onMenuChanged();
   }
